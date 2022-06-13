@@ -12,25 +12,34 @@
         function computerPlay() {
             const choices = ['rock', 'paper', 'scissors']
             let randomChoice = Math.floor((Math.random() * choices.length));
-            let computerChoice = choices[randomChoice]
-            console.log(computerChoice)
+            console.log(randomChoice)
+            if (randomChoice === 0) {
+                computerSelection = 'rock'
+            } else if (randomChoice === 1) {
+                computerSelection = 'paper'
+            } else if (randomChoice === 2) {
+                computerSelection = 'scissors'
+            } return computerSelection
         }
 
         //Create case insensitive 'playerSelection' function
 
-        function playerSelection() {
-            let playerChoice = ''
-            while (playerChoice.toLowerCase() !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
-                playerChoice = window.prompt("Please choose 'rock', 'paper', or 'scissors' ");
-            }
-            if (playerChoice.toLowerCase() === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors') {
-                console.log('You chose: ' + playerChoice.toLowerCase())
+        function playerPlay() {
+            playerChoice = ''
+            while (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
+                playerChoice = prompt("Please choose 'rock', 'paper', or 'scissors' ").toLowerCase()
+                console.log(playerChoice)
             } 
+            playerSelection = playerChoice
+            return playerSelection
         }
+
 
         // Write a function that plays a single round of RPS 'playRound'
         // Function should take two paramaters, 'playerSelection' and 'computerSelection'
         // return the results
+        
+
 
         //Create 'game' function. call 'playRound' function inside to play 5 rounds
         // track score and report winner or loser at end
