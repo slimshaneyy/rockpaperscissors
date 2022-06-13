@@ -14,31 +14,52 @@
             let randomChoice = Math.floor((Math.random() * choices.length));
             console.log(randomChoice)
             if (randomChoice === 0) {
-                computerSelection = 'rock'
+                compChoice = 'rock'
             } else if (randomChoice === 1) {
-                computerSelection = 'paper'
+                compChoice = 'paper'
             } else if (randomChoice === 2) {
-                computerSelection = 'scissors'
-            } return computerSelection
+                compChoice = 'scissors'
+            } return compChoice
         }
 
         //Create case insensitive 'playerSelection' function
 
         function playerPlay() {
-            playerChoice = ''
+            let playerChoice = ''
             while (playerChoice !== 'rock' && playerChoice !== 'paper' && playerChoice !== 'scissors') {
                 playerChoice = prompt("Please choose 'rock', 'paper', or 'scissors' ").toLowerCase()
                 console.log(playerChoice)
             } 
-            playerSelection = playerChoice
-            return playerSelection
+            let playChoice = playerChoice
+            return playChoice
         }
+
+        let computerSelection = computerPlay()
+        let playerSelection = playerPlay()
 
 
         // Write a function that plays a single round of RPS 'playRound'
         // Function should take two paramaters, 'playerSelection' and 'computerSelection'
         // return the results
         
+        function playRound(computerSelection, playerSelection) {
+            if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                console.log("Player Wins!")
+            } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                console.log("Player Wins!")
+            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                console.log("Player Wins!")
+            } else if (computerSelection === 'paper' && playerSelection === 'rock') {
+                console.log("Computer Wins!")
+            } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
+                console.log("Computer Wins!")
+            } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
+                console.log("Computer Wins!")
+            } else {
+                console.log("It's a Tie!")
+            }
+        }
+    
 
 
         //Create 'game' function. call 'playRound' function inside to play 5 rounds
