@@ -48,20 +48,28 @@
 
 
             function game() {
+                let playerWins = 0
+                let computerWins = 0
                 for (let i = 0; i < 5; i++) {
                 function playRound(computerSelection, playerSelection) {
                     if (playerSelection === 'rock' && computerSelection === 'scissors') {
                         console.log("Player Wins!")
+                        playerWins++
                     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
                         console.log("Player Wins!")
+                        playerWins++
                     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
                         console.log("Player Wins!")
+                        playerWins++
                     } else if (computerSelection === 'paper' && playerSelection === 'rock') {
                         console.log("Computer Wins!")
+                        computerWins++
                     } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
                         console.log("Computer Wins!")
+                        computerWins++
                     } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
                         console.log("Computer Wins!")
+                        computerWins++
                     } else {
                         console.log("It's a Tie!")
                     }
@@ -69,6 +77,18 @@
                     const computerSelection = computerPlay()
                     const playerSelection = playerPlay()
                     console.log(playRound(playerSelection, computerSelection));
+                    console.log("Player Total Wins: " + playerWins)
+                    console.log("Computer Total Wins: " + computerWins)
+
+                    if (i === 4) {
+                        if (playerWins > computerWins) {
+                            console.log("Congratulations! You Win!!!")
+                        } else if (playerWins === computerWins) {
+                            console.log("You and the computer tied!")
+                        } else {
+                            console.log("You Lose! Better luck next time!!!")
+                        }
+                    }
                     }
                             }
 
